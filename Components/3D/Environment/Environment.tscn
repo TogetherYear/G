@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvgosdhxb068u"]
+
+[ext_resource type="PackedScene" uid="uid://b30idb076t0mu" path="res://Components/3D/PointLight/PointLight.tscn" id="1_cb3f2"]
+[ext_resource type="Texture2D" uid="uid://dcip6sq60ynko" path="res://Textures/Plane/basecolor.png" id="2_hnwbd"]
+[ext_resource type="Texture2D" uid="uid://b3isb3b5oil3i" path="res://Textures/Plane/height.png" id="3_u1km3"]
+[ext_resource type="Texture2D" uid="uid://c1wt2yhg6dxi" path="res://Textures/Plane/metallic.png" id="4_bkebb"]
+[ext_resource type="Texture2D" uid="uid://tlybc58vwhca" path="res://Textures/Plane/normal.png" id="5_bdfjo"]
+[ext_resource type="Texture2D" uid="uid://drg6mdmwqkhi2" path="res://Textures/Plane/roughness.png" id="6_gxlix"]
+
+[sub_resource type="Environment" id="Environment_4ld7g"]
+background_color = Color(0.129412, 0.129412, 0.129412, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1
+fog_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3
+volumetric_fog_emission = Color(0.129412, 0.129412, 0.129412, 1)
+adjustment_brightness = 0.68
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnhcv"]
+albedo_texture = ExtResource("2_hnwbd")
+metallic = 1.0
+metallic_texture = ExtResource("4_bkebb")
+roughness_texture = ExtResource("6_gxlix")
+normal_enabled = true
+normal_texture = ExtResource("5_bdfjo")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_u1km3")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kivc5"]
+material = SubResource("StandardMaterial3D_mnhcv")
+size = Vector2(200, 200)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gertc"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[node name="Environment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4ld7g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(0.329412, 0.329412, 0.329412, 1)
+light_energy = 0.24
+
+[node name="PointLight" parent="." instance=ExtResource("1_cb3f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11888, 1.27487, -3.30369)
+
+[node name="PointLight4" parent="." instance=ExtResource("1_cb3f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66598, 1.27487, 0)
+
+[node name="PointLight2" parent="." instance=ExtResource("1_cb3f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76632, 5.7056)
+
+[node name="PointLight3" parent="." instance=ExtResource("1_cb3f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627137, -5.26863)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_kivc5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_gertc")

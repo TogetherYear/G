@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl61kxs7nuw8c"]
+
+[ext_resource type="PackedScene" uid="uid://dvgosdhxb068u" path="res://Components/3D/Environment/Environment.tscn" id="1_b1tms"]
+[ext_resource type="PackedScene" uid="uid://c63xta1e8hir6" path="res://Components/3D/FpsController/FpsController.tscn" id="2_vjueu"]
+[ext_resource type="PackedScene" uid="uid://b30qcbwydtd5y" path="res://Components/2D/Options/Options.tscn" id="3_yvmku"]
+
+[node name="Game1" type="Node3D"]
+
+[node name="Environment" parent="." instance=ExtResource("1_b1tms")]
+
+[node name="FPSController" parent="." instance=ExtResource("2_vjueu")]
+transform = Transform3D(-0.351416, 0, 0.93622, 0, 1, 0, -0.93622, 0, -0.351416, 6.05098, 0, -3.06942)
+
+[node name="Options" parent="." instance=ExtResource("3_yvmku")]
+visible = false
