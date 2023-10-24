@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c63xta1e8hir6"]
 
-[ext_resource type="Script" path="res://Components/3D/FpsController/FpsController.gd" id="1_bifcb"]
+[ext_resource type="Script" path="res://Components/FpsController/FpsController.gd" id="1_qaslt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7j30d"]
 radius = 0.3
@@ -10,7 +10,7 @@ height = 1.6
 collision_layer = 2147483648
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_bifcb")
+script = ExtResource("1_qaslt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

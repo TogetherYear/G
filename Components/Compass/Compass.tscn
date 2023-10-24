@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpi0g7h4uw122"]
+
+[ext_resource type="Texture2D" uid="uid://b6hxb1waxosc8" path="res://Textures/Compass/whole.png" id="1_576bn"]
+[ext_resource type="Texture2D" uid="uid://dffgj8li6u0gk" path="res://Textures/Compass/mid.png" id="2_nhmn4"]
+[ext_resource type="Texture2D" uid="uid://bx220h42rtq6s" path="res://Textures/Compass/single.png" id="3_jy3he"]
+
+[node name="Compass" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.0784314)
+
+[node name="Whole" type="Sprite2D" parent="."]
+position = Vector2(651, 359)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_576bn")
+
+[node name="Mid" type="Sprite2D" parent="Whole"]
+texture = ExtResource("2_nhmn4")
+
+[node name="Single" type="Sprite2D" parent="Whole"]
+position = Vector2(122, -157)
+texture = ExtResource("3_jy3he")
+
+[node name="Single2" type="Sprite2D" parent="Whole"]
+position = Vector2(195, 28)
+rotation = 1.04854
+texture = ExtResource("3_jy3he")
+
+[node name="Single3" type="Sprite2D" parent="Whole"]
+position = Vector2(73, 185)
+rotation = 2.0922
+texture = ExtResource("3_jy3he")
+
+[node name="Single4" type="Sprite2D" parent="Whole"]
+position = Vector2(-121, 156)
+rotation = 3.13712
+texture = ExtResource("3_jy3he")
+
+[node name="Single5" type="Sprite2D" parent="Whole"]
+position = Vector2(-196, -29)
+rotation = 4.18787
+texture = ExtResource("3_jy3he")
+
+[node name="Single6" type="Sprite2D" parent="Whole"]
+position = Vector2(-72, -185)
+rotation = 5.24033
+texture = ExtResource("3_jy3he")
