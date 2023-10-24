@@ -10,12 +10,12 @@ extends CharacterBody3D
 
 @export var gravity = 9.8
 
-@export var rotateSpeed = 0.08
+@export var rotateSpeed = 0.06
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _physics_process(_delta):
+func _process(delta):
 	OnMovement()
 
 func OnMovement():
@@ -36,7 +36,7 @@ func OnMove():
 	if !is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, airStopSpeed)
 		velocity.z = move_toward(velocity.z, 0, airStopSpeed)
-	else :
+	else:
 		var input_dir = Input.get_vector("Left", "Right", "Forward", "Backward")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
@@ -49,6 +49,6 @@ func OnMove():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * rotateSpeed * get_process_delta_time())
-		$CameraArm.rotate_x(-event.relative.y * rotateSpeed * get_process_delta_time())
+		rotate_y(deg_to_rad(-event.relative.x * rotateSpeed))
+		$CameraArm.rotate_x(deg_to_rad(-event.relative.y * rotateSpeed))
 		$CameraArm.rotation.x = clamp($CameraArm.rotation.x, deg_to_rad(-70.0), deg_to_rad(70.0))
