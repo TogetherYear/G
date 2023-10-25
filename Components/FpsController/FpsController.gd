@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var stopSpeed = 5.0
 
-@export var airStopSpeed = 0.04
+@export var airStopSpeed = 2.0
 
 @export var speed = 5.0
 
@@ -33,8 +33,8 @@ func OnJump():
 func OnMove():
 	if TStatus.CanController():
 		if !is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, airStopSpeed)
-			velocity.z = move_toward(velocity.z, 0, airStopSpeed)
+			velocity.x = move_toward(velocity.x, 0, airStopSpeed * get_process_delta_time())
+			velocity.z = move_toward(velocity.z, 0, airStopSpeed * get_process_delta_time())
 		else:
 			var input_dir = Input.get_vector("Left", "Right", "Forward", "Backward")
 			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

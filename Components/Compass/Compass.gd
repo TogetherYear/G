@@ -38,7 +38,6 @@ func GetCompassPart(p:Vector2):
 		return Current.Empty
 
 func OnSelectGuiInput(event:InputEvent):
-	print("A")
 	if event is InputEventMouseMotion:
 		animationTree.set("parameters/Select/blend_position",GetCompassPart(event.position))
 	
