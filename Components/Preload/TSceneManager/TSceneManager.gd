@@ -2,9 +2,11 @@ extends Control
 
 @onready var progressBar = $ProgressBar
 
-@onready var animationPlayer = $AnimationPlayer
+@onready var animationPlayer = $SceneAnimationPlayer
 
 @onready var label = $Label
+
+@onready var labelPlayer = $Label/LabelAnimationPlayer
 
 var path:String
 
@@ -22,8 +24,7 @@ func ShowBody():
 	TStatus.switch = true
 	loaded = false
 	show()
-	label.hide()
-	progressBar.show()
+	labelPlayer.play("Hide")
 	progressBar.value = 0
 	animationPlayer.play("Show")
 	await animationPlayer.animation_finished
@@ -43,8 +44,9 @@ func SwitchScene(e:String):
 	ResourceLoader.load_threaded_request(path)
 
 func OnLoad():
-	label.show()
-	progressBar.hide()
+	animationPlayer.play("ProgressbarHide")
+	await animationPlayer.animation_finished
+	labelPlayer.play("Flash")
 	loaded = true
 
 func _process(_delta):
@@ -57,5 +59,5 @@ func _process(_delta):
 			OnLoad()
 	
 	if loaded:
-		if Input.is_action_just_pressed("Jump"):
+		if Input.is_action_just_pressed("Skip"):
 			HideBody()
