@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://buhosx6uj3ok4"]
+[gd_scene load_steps=7 format=3 uid="uid://buhosx6uj3ok4"]
 
 [ext_resource type="PackedScene" uid="uid://dvgosdhxb068u" path="res://Components/Environment/Environment.tscn" id="1_m2j76"]
 [ext_resource type="Script" path="res://Levels/Main/Main.gd" id="1_wrkea"]
 [ext_resource type="PackedScene" uid="uid://b30idb076t0mu" path="res://Components/PointLight/PointLight.tscn" id="2_llsbd"]
 [ext_resource type="AudioStream" uid="uid://c5ftmte6t4oax" path="res://Musics/Bgm.mp3" id="4_8ysrh"]
+[ext_resource type="PackedScene" uid="uid://cgukeixqj27s8" path="res://Components/Door/Door.tscn" id="5_xa5ft"]
+[ext_resource type="PackedScene" uid="uid://bb1yucqmi7a6v" path="res://Components/SpotLight/SpotLight.tscn" id="6_sqbha"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wrkea")
@@ -22,7 +24,7 @@ light_color = Color(0.533725, 0.854933, 0.77429, 1)
 light_color = Color(0.533725, 0.854933, 0.77429, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.970296, 0.241922, 0, -0.241922, 0.970296, 0, 2.8, 7)
+transform = Transform3D(0.970726, -0.00166791, 0.240185, 0, 0.999976, 0.00694411, -0.24019, -0.00674082, 0.970703, 0.76102, 0.973899, 8.7768)
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -86,6 +88,12 @@ unit_size = 14.0
 max_db = 6.0
 autoplay = true
 max_distance = 100.0
+
+[node name="Door" parent="." instance=ExtResource("5_xa5ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35537, 0, 8.28972)
+
+[node name="SpotLight3D" parent="." instance=ExtResource("6_sqbha")]
+transform = Transform3D(0.872325, 2.13716e-08, -0.488926, 0.488926, -3.81306e-08, 0.872325, 0, -1, -4.37114e-08, -5.00807, 9.41886, 7.93975)
 
 [connection signal="pressed" from="Menu/ColorRect/Start" to="." method="OnStartPressed"]
 [connection signal="pressed" from="Menu/ColorRect/Exit" to="." method="OnExitPressed"]
