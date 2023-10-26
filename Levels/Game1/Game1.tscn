@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl61kxs7nuw8c"]
+[gd_scene load_steps=7 format=3 uid="uid://bl61kxs7nuw8c"]
 
 [ext_resource type="PackedScene" uid="uid://dvgosdhxb068u" path="res://Components/Environment/Environment.tscn" id="1_b1tms"]
 [ext_resource type="Script" path="res://Levels/Game1/Game1.gd" id="1_et3f1"]
 [ext_resource type="PackedScene" uid="uid://c63xta1e8hir6" path="res://Components/FpsController/FpsController.tscn" id="2_vjueu"]
 [ext_resource type="PackedScene" uid="uid://bb1yucqmi7a6v" path="res://Components/SpotLight/SpotLight.tscn" id="3_er8tc"]
 [ext_resource type="PackedScene" uid="uid://b30qcbwydtd5y" path="res://Components/Options/Options.tscn" id="3_yvmku"]
+[ext_resource type="AudioStream" uid="uid://b0l403nbqo0tc" path="res://Musics/Play.mp3" id="6_xx5yv"]
 
 [node name="Game1" type="Node3D"]
 script = ExtResource("1_et3f1")
@@ -17,3 +18,10 @@ script = ExtResource("1_et3f1")
 transform = Transform3D(-0.351416, 0, 0.93622, 0, 1, 0, -0.93622, 0, -0.351416, 6.05098, 0, -3.06942)
 
 [node name="Options" parent="." instance=ExtResource("3_yvmku")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_xx5yv")
+unit_size = 7.0
+max_db = 6.0
+autoplay = true
+max_distance = 100.0

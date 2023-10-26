@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvgosdhxb068u"]
+[gd_scene load_steps=10 format=3 uid="uid://dvgosdhxb068u"]
 
 [ext_resource type="Texture2D" uid="uid://dcip6sq60ynko" path="res://Textures/Plane/basecolor.png" id="2_tj7u3"]
 [ext_resource type="Texture2D" uid="uid://b3isb3b5oil3i" path="res://Textures/Plane/height.png" id="3_17hr1"]
 [ext_resource type="Texture2D" uid="uid://c1wt2yhg6dxi" path="res://Textures/Plane/metallic.png" id="4_3c5i5"]
 [ext_resource type="Texture2D" uid="uid://tlybc58vwhca" path="res://Textures/Plane/normal.png" id="5_ptp0s"]
-[ext_resource type="AudioStream" uid="uid://c5ftmte6t4oax" path="res://Musics/Bgm.mp3" id="6_6h015"]
 [ext_resource type="Texture2D" uid="uid://drg6mdmwqkhi2" path="res://Textures/Plane/roughness.png" id="6_sr6cy"]
 
 [sub_resource type="Environment" id="Environment_4ld7g"]
@@ -56,9 +55,3 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_gertc")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_6h015")
-unit_size = 7.0
-autoplay = true
-max_distance = 100.0
