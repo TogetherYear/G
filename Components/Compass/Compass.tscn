@@ -767,7 +767,7 @@ max_space = 7.0
 value_label = "current"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dqyu6"]
-graph_offset = Vector2(-453.574, -33.2896)
+graph_offset = Vector2(-141.275, -101.175)
 nodes/Select/node = SubResource("AnimationNodeBlendSpace1D_hr0hs")
 nodes/Select/position = Vector2(-140, 140)
 node_connections = [&"output", 0, &"Select"]
