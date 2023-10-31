@@ -20,6 +20,7 @@ config/icon="res://Logo.png"
 
 [autoload]
 
+TGameSetting="*res://Components/Preload/TGameSetting/TGameSetting.gd"
 TExtensionMethon="*res://Components/Preload/TExtensionMethon/TExtensionMethon.gd"
 TStatus="*res://Components/Preload/TStatus/TStatus.gd"
 TSceneManager="*res://Components/Preload/TSceneManager/TSceneManager.tscn"
