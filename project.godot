@@ -78,11 +78,6 @@ Skip={
 ]
 }
 
-[layer_names]
-
-3d_physics/layer_1="Generate"
-3d_physics/layer_32="Player"
-
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.168627, 0.168627, 0.168627, 1)

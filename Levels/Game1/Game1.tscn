@@ -14,9 +14,6 @@ script = ExtResource("1_et3f1")
 
 [node name="SpotLight3D" parent="." instance=ExtResource("3_er8tc")]
 
-[node name="FPSController" parent="." instance=ExtResource("2_vjueu")]
-transform = Transform3D(-0.351416, 0, 0.93622, 0, 1, 0, -0.93622, 0, -0.351416, 6.05098, 0, -3.06942)
-
 [node name="Options" parent="." instance=ExtResource("3_yvmku")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
@@ -25,3 +22,6 @@ unit_size = 7.0
 max_db = 6.0
 autoplay = true
 max_distance = 100.0
+
+[node name="FPSController" parent="." instance=ExtResource("2_vjueu")]
+transform = Transform3D(-0.351416, 0, 0.93622, 0, 1, 0, -0.93622, 0, -0.351416, 6.051, 0, -3.069)

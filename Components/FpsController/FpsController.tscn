@@ -7,7 +7,6 @@ radius = 0.3
 height = 1.6
 
 [node name="FPSController" type="CharacterBody3D"]
-collision_layer = 2147483648
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qaslt")
