@@ -4,9 +4,9 @@ extends Control
 
 @onready var animationPlayer = $SceneAnimationPlayer
 
-@onready var label = $Label
+@onready var label = $Wait/Label
 
-@onready var labelPlayer = $Label/LabelAnimationPlayer
+@onready var waitPlayer = $Wait/WaitPlayer
 
 var path:String
 
@@ -24,7 +24,7 @@ func ShowBody():
 	TStatus.switch = true
 	loaded = false
 	show()
-	labelPlayer.play("Hide")
+	waitPlayer.play("Hide")
 	progressBar.value = 0
 	animationPlayer.play("Show")
 	await animationPlayer.animation_finished
@@ -46,7 +46,7 @@ func SwitchScene(e:String):
 func OnLoad():
 	animationPlayer.play("ProgressbarHide")
 	await animationPlayer.animation_finished
-	labelPlayer.play("Flash")
+	waitPlayer.play("Flash")
 	loaded = true
 
 func _process(_delta):
