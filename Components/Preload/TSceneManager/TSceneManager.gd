@@ -24,7 +24,7 @@ func ShowBody():
 	TStatus.switch = true
 	loaded = false
 	show()
-	waitPlayer.play("Hide")
+	waitPlayer.play("Reset")
 	progressBar.value = 0
 	animationPlayer.play("Show")
 	await animationPlayer.animation_finished
