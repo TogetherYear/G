@@ -24,6 +24,7 @@ TGameSetting="*res://Components/Preload/TGameSetting/TGameSetting.gd"
 TExtensionMethon="*res://Components/Preload/TExtensionMethon/TExtensionMethon.gd"
 TStatus="*res://Components/Preload/TStatus/TStatus.gd"
 TSceneManager="*res://Components/Preload/TSceneManager/TSceneManager.tscn"
+TPromptManager="*res://Components/Preload/TPromptManager/TPromptManager.tscn"
 
 [display]
 

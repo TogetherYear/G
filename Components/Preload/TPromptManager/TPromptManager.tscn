@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://38l7w5654ta3"]
+
+[ext_resource type="Script" path="res://Components/Preload/TPromptManager/TPromptManager.gd" id="1_cye4g"]
+[ext_resource type="Shader" path="res://Components/Preload/TPromptManager/Fade.gdshader" id="2_76mna"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmd5f"]
+shader = ExtResource("2_76mna")
+shader_parameter/leftSpe = 0.48
+shader_parameter/rightSpe = 0.52
+shader_parameter/power = 2.0
+shader_parameter/wholeAlphaScale = 0.4
+shader_parameter/fadeColor = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_a6hk5"]
+resource_name = "Reset"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back/Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_066xn"]
+resource_name = "Popup"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back/Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t2o6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back/Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1njm"]
+_data = {
+"Popup": SubResource("Animation_066xn"),
+"RESET": SubResource("Animation_t2o6m"),
+"Reset": SubResource("Animation_a6hk5")
+}
+
+[node name="TPromptManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cye4g")
+
+[node name="Back" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Message" type="ColorRect" parent="Back"]
+material = SubResource("ShaderMaterial_mmd5f")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 176.0
+grow_horizontal = 2
+
+[node name="Text" type="Label" parent="Back/Message"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "消息提示"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b1njm")
+}

@@ -46,7 +46,7 @@ func SwitchScene(e:String):
 func OnLoad():
 	animationPlayer.play("ProgressbarHide")
 	await animationPlayer.animation_finished
-	waitPlayer.play("Flash")
+	waitPlayer.play("Wait")
 	loaded = true
 
 func _process(_delta):
