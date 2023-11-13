@@ -9,7 +9,7 @@ var switch = false
 func SwitchUIStatus(e:bool):
 	ui = e
 	if e:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

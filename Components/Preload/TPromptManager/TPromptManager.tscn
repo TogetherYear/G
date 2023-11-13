@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://38l7w5654ta3"]
+[gd_scene load_steps=7 format=3 uid="uid://38l7w5654ta3"]
 
 [ext_resource type="Script" path="res://Components/Preload/TPromptManager/TPromptManager.gd" id="1_cye4g"]
 [ext_resource type="Shader" path="res://Components/Preload/TPromptManager/Fade.gdshader" id="2_76mna"]
@@ -10,22 +10,6 @@ shader_parameter/rightSpe = 0.52
 shader_parameter/power = 2.0
 shader_parameter/wholeAlphaScale = 0.4
 shader_parameter/fadeColor = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_a6hk5"]
-resource_name = "Reset"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Back/Message:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_066xn"]
 resource_name = "Popup"
@@ -43,8 +27,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_t2o6m"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_a6hk5"]
+resource_name = "Reset"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,13 +40,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1njm"]
 _data = {
 "Popup": SubResource("Animation_066xn"),
-"RESET": SubResource("Animation_t2o6m"),
 "Reset": SubResource("Animation_a6hk5")
 }
 
@@ -85,6 +69,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="Message" type="ColorRect" parent="Back"]
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_mmd5f")
 layout_mode = 1
 anchors_preset = 10
